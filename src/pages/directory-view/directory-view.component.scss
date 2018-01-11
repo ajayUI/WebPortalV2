@@ -1,0 +1,91 @@
+directory-view {
+    font-family: 'Open Sans', sans-serif;
+    agm-map {
+        height: 100%;
+        width: 100%;
+      }
+      .sidebar{
+                // min-width: 26.25%;
+                width: 430px;
+                background: #fff;
+                border-right: 1px solid #ccc;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                min-height: 100%;
+                z-index: 3;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+            
+            
+            }
+            .blue-search-block {
+                margin-top: 55px;
+                width: 100%;
+                background:#2196f3;
+                // min-height: 200px;
+            }
+
+            .directory ion-list {border-bottom: 1px solid #ccc; margin-bottom: 1px;}
+            .buttonsPrintEmail
+            {
+                // position: absolute;
+                // right: 15px;
+                // margin-top: 13px;
+            }
+            .buttonsPrintEmail .printButton {
+                background:url("../assets/icon/print.svg") no-repeat 0px 0px;
+                background-size: 18px;
+                width: 18px;
+                height: 18px;
+            }
+            .buttonsPrintEmail .emailButton {
+                background:url("../assets/icon/email.svg") no-repeat 0px 0px;
+                background-size: 18px;
+                width: 18px;
+                height: 18px;
+                margin-right: 20px;
+
+            }
+            .mapLegendsInWeb .close-map-legends-button{display: none}
+
+    @media only screen and (max-width: 500px) {
+        .mapLegendsInMobile .close-map-legends-button{display: block}
+                .sidebar {min-width: 100%; min-height: 1px; width:100% }
+                .showMapLegendButton {background:#fff url("../assets/icon/legend.svg") no-repeat 2px 3px;
+                    background-size: 18px;
+                    width: 25px;
+                    height: 25px;
+                    padding: 4px;
+                    margin-right: 20px;
+                    border: 1px solid #ccc;
+                     }
+                    .controls{position: absolute; right: 0px; top: 75%;}
+
+                // .toLocation {display: block;
+                //     margin-top: 55px;
+                //     width: 100%;
+                //     background: #2196f3;
+                //     min-height: 25px;}
+              //  .blue-search-block {display: none}
+              .mapLegends {width: 0px;}
+              .mapLegendsInMobile .mapLegends{ width:400px; height: 500px }
+              .mapLegendsInMobile .mapLegends .swiper-wrapper {height: 500px }
+              .mapLegendsInMobile .mapLegends ion-slides {
+                  margin-top: 20px;
+              height: 425px;
+              overflow-y: auto;
+              }
+              .mapLegendsInMobile .mapLegends ion-slide {width: 100% !important; height: auto !important;}
+              .mapLegendsInMobile .mapLegends .swiper-container {height: 500px; padding-top:0px; }
+              .mapLegendsInMobile .mapLegends .swiper-wrapper {max-height: 500px;width:100%;}
+              .mapLegendsInMobile .mapLegends  .slide-zoom {text-align: left; padding-left: 30px; font-size: 18px; line-height:26px;
+                min-height: 50px;}
+
+              .mapLegendsInMobile .mapLegends .next-legends, .prev-legends {display:none}
+              .blue-search-block {
+                margin-top: 44px;
+            }
+    }
+}
+
+

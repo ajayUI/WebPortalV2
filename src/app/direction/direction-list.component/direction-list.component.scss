@@ -1,0 +1,62 @@
+direction-list{
+    a.menuList {text-decoration: none; font-size: 14px; color: #444}
+    h4{padding:7px 0px 0px 15px; color: #444; background: #e6ebf1; margin: 0px;min-height: 40px; font-size: 16px;}
+    ion-icon{font-size:1.7em;}
+    .viewDetailArrow ion-icon{margin-top:-5px; color: #2196f3}
+    .destinationMenu ion-list ion-icon{color:#898989 }
+    .mapItButton  button {background: #2196f3}
+    .three-col{width:40%; float:left;word-wrap: break-word; padding: 3px;font-size: 14px; white-space: normal}
+
+    ion-label .three-col, .directionHeader .three-col{text-align: center;}
+    ion-label .three-col:first-child,  .directionHeader:first-child .three-col {text-align: left;}
+    .two-col{width:49%; float:left; font-size: 13px;white-space: normal}
+
+    .three-col div, .two-col div{white-space: normal }
+    //.directions ion-item{margin-left:0px;padding-left:0px;}
+    .directions ion-label{padding-right:0px;margin-right:0px; margin: 5px 0px}
+    .directions ion-list ion-item .item-inner {padding-right:0px !important;}
+
+    .directionHeader .two-col, .directionHeader .three-col {padding-left:15px;border-collapse: collapse; padding-top:10px !important; padding-bottom: 10px !important;  }
+
+    .directionHeader .three-col{width:40%; float:left; word-wrap: break-word; padding: 3px; white-space: normal; padding-left: 15px; background: #e6ebf1; font-weight:bold;}
+    .directionHeader .two-col{width:49%; float:left; word-wrap: nowrap; background: #e6ebf1;font-weight:bold;}
+    .directionHeader .button-col{width:20%; float:left; padding: 9px 9px 10px 9px;background: #e6ebf1;font-weight:bold;}
+
+    .backMenu {margin-top:0px; right:10px;position: absolute}
+    .viewDetailArrow {margin:10px 0px 0px 20px;padding: 0px; background: none}
+    .otherDetails {width:100%;max-width:90%;
+        display: block;padding: 5px;font-size:14px; overflow: hidden;  white-space: normal; display: none}
+    .mapItButton {text-align: center}
+    //.noDisplay{display:none}
+    .yesDisplay{display:block}
+    ion-item[title="opened"] .otherDetails{display: block}
+    .listArrow{float:right; display:block;width:20px;height:25px}
+    .filterDirection {width: 95%; height: 30px;padding: 5px 5px 5px 25px;margin: 5px;border:1px solid #c7d0db; 
+        }
+    .clearInput{ position: absolute;
+                 right: 24px;
+                 margin-top: 9px;
+                 font-size: 1.4em;
+                 cursor: pointer;
+                 color: #6e7b8b;
+                }
+    .showFilter{
+        position: absolute;
+        left: 10px;
+        margin-top: 9px;
+        font-size: 1.4em;
+        cursor: pointer;
+        color: #b8c2ce;
+    }
+    .directionHeaderContainer {overflow: hidden}
+    .directionContainer{max-height: 500px; overflow: auto;}
+    .breadcrumb{ font-size:16px; margin-left: 15px;}
+    .breadcrumb-arrow {font-size: 0.89em;}
+    .breadcrumb-link {text-decoration: underline}
+    .homeMenu{margin-top:-3px; left:5px;position: absolute; font-size: 1.4em; color: #2196f3; cursor: pointer}
+
+    @media only screen and (max-width: 500px) {
+    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {border-bottom: none;}
+    .list-ios > .item-block:first-child {border-top: none}
+    }
+}

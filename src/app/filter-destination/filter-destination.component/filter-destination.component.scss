@@ -1,0 +1,15 @@
+filter-destination{
+    .header {padding: 7px 0px 0px 10px;
+        color: #444;
+        background: #e6ebf1;
+        margin: 0px;
+        min-height: 40px;
+        font-size: 16px;}
+    ion-row:first-child {margin-top:0px !important;}
+    ion-row.searchRow {padding: 0px 15px; margin: 10px 0px 0px 0px}
+    h4{margin:0px; padding: 10px 0px 10px 0px; font-size:14px; font-weight: bold; color: #444 }
+    .searchRow {width: 100%; display: block}
+    ion-col.searchRow{padding:10px 0px; font-size: 14px;}
+    ion-col.searchRow:last-child{padding-bottom:0px !important; font-size: 14px;}
+    ion-col a {color: #444; text-decoration: none; padding: 0px; display: block}
+}

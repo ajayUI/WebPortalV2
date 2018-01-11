@@ -1,0 +1,43 @@
+map-legends{
+    position: relative;
+    ion-slides{height:auto}
+    .mapLegends{border-radius: 10px; height: 50px; width: 70%; position: fixed; right: 4%; border: 1px solid #ccc;z-index: 2; bottom: 50px;background: #fff;
+        box-shadow: 2px 2px 5px #505050;}
+    ion-slide{ }
+    ion-slides {height: 52px;}
+    .swiper-container {width: 87%}
+    .swiper-wrapper {width: auto;
+    margin: auto}
+    .swiper-slide {margin:-4px 0px 0px 0px;font-size: 14px; width: 120px;}
+    .next-legends {
+    position: absolute;
+    right: 20px;
+    top: 6px;
+    font-size: 2.8em;
+    }
+    .prev-legends {
+    position: absolute;
+    left: 20px;
+    top: 6px;
+    font-size: 2.8em;
+    }
+    .legend-slide{height:45px;}
+    .legendText {float:left; display: block; padding-top: 13px; }
+    .legendIcon {background:#fff url('../assets/icon/transite-green.svg') no-repeat 0px 14px;background-size: 20px; width: 30px; height: 34px; display: block; float: left}
+@media all and (orientation:portrait) {
+    
+}
+
+@media only screen and (max-width: 500px) {
+
+
+    .next-legends,.prev-legends { top:5px;}
+    .close-map-legends-button {position: absolute; float: right; position: absolute; right: 0px;right: 35px;
+        top: 15px;z-index: 4; background: none}
+    .close-map-legends{font-size: 2.5em; font-weight: bold;
+     }
+}
+
+    .disabled::before{color: #ccc;}
+  
+}

@@ -1,0 +1,111 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+body, html{  font-family: 'Open Sans', sans-serif;}
+.menu-inner {
+    // min-width: 26.25%;
+    width: 430px;
+}
+ion-header {
+    width: 430px;
+    // max-width: 26.25%;
+}
+.menuContainer button ion-label{padding-left:25px;}
+button[name='today']{
+     background:url("../assets/icon/today-events.svg") no-repeat 16px 15px;
+     background-size: 15px;
+}
+button[name='event']{
+    background:url("../assets/icon/events-calendar.svg") no-repeat 16px 13px;
+    background-size: 15px;
+}
+button[name='campus']{
+    background:url("../assets/icon/campus-maps.svg") no-repeat 16px 15px;
+    background-size: 15px;
+}
+button[name='representative']{
+    background:url("../assets/icon/representative.svg") no-repeat 16px 14px;
+    background-size: 15px;
+}
+button[name='feedback']{
+    background:url("../assets/icon/send-feedback.svg") no-repeat 16px 15px;
+    background-size: 15px;
+}
+
+.menuBackArrow
+{
+    background:url("../assets/icon/menu-back-arrow.svg") no-repeat 0px 5px;
+    background-size: 18px;
+    width: 25px;
+    height: 25px;
+    text-indent: -99999px;
+    float: right;
+    
+}
+
+button[name="menuBack"] {
+    float: right;
+    position: absolute;
+    right: 0px;
+}
+
+
+.menu-inner ion-header {max-width: 100%}
+.sidebar + ion-content .scroll-content {margin-top: 0px !important;}
+
+
+
+::-webkit-scrollbar{
+    width: 15px;
+    border-radius: 20px;
+  }
+
+::-webkit-scrollbar-track{
+    background: #d1d1d1;
+   // border-radius: 20px;
+  }
+::-webkit-scrollbar-thumb{
+    width: 24px;
+    background: #a1a1a1;
+    border: 1px solid #d1d1d1;
+    border-radius: 15px;
+  }
+
+::-webkit-scrollbar-button:vertical:decrement{
+  //background:#d1d1d1 url('../assets/img/scroll-up.png');
+  background:#d1d1d1;
+  background-repeat: no-repeat;
+  background-position: -1px 0px, 0 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+::-webkit-scrollbar-button:vertical:increment{
+  //background:#d1d1d1 url('../assets/img/scroll-down.png');
+  background:#d1d1d1;
+  background-repeat: no-repeat;
+  background-position: 0px 0px, 0 0;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.menu-inner .scroll-content {overflow: hidden}
+
+
+
+@media only screen and (max-width: 500px) {
+    .menu-inner {min-width: 100%; width: 100%;}
+    ion-header {max-width: 100%; width: 100%;}
+    .sidebar + ion-content .scroll-content {overflow: hidden}
+}

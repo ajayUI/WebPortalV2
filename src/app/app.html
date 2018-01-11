@@ -1,0 +1,28 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title><img src="../assets/icon/logo.png"></ion-title>
+      <button name="menuBack" ion-button menuToggle>
+        <span class="menuBackArrow">dd</span>
+      </button>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+      <ion-item>
+          <ion-label>Language :</ion-label>
+          <ion-select interface="popover">
+            <ion-option value="en">English</ion-option>
+            <ion-option value="sp">Spanish</ion-option>
+          </ion-select>
+        </ion-item>
+    <ion-list class="menuContainer">
+      <button name="{{p.icon}}" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

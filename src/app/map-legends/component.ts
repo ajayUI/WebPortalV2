@@ -1,0 +1,1 @@
+export { MapLegend } from './map-legend.component/map-legend.component';

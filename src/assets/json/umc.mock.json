@@ -1,0 +1,145 @@
+{  
+    "ShortestPath":{  
+       "f1":{  
+          "title":"Third floor",
+          "url":"1309-thethirdfloor.svg",
+          "description":"",
+          "pathpoints":"3101.39990234375,2295.69995117188 3080.30004882813,2295.69995117188 3063.19995117188,2295.69995117188 3061.60009765625,2295.69995117188 3061.60009765625,2228.60009765625 3061.60009765625,2199.80004882813 3061.60009765625,2148.30004882813 3061.60009765625,2069.10009765625 3061.60009765625,1994.69995117188 3013.10009765625,1994.69995117188 2915.5,1994.69995117188 2915.5,1976.80004882813 2915.5,1962.69995117188",
+          "floorid":19471
+       },
+       "f2":{  
+          "title":"First floor",
+          "url":"1309-thefirstfloor.svg",
+          "description":"",
+          "pathpoints":"2910.10009765625,1958.09997558594 2910.10009765625,1972 2910.10009765625,1989.09997558594 2910.10009765625,1992.30004882813 2898.69995117188,1992.30004882813 2897.60009765625,1992.30004882813 2766.10009765625,1992.30004882813 2747.69995117188,1992.30004882813 2744,1992.30004882813 2629.60009765625,1992.30004882813 2615,1992.30004882813 2600.80004882813,1992.30004882813 2600.80004882813,1885.40002441406 2600.80004882813,1880.80004882813 2555.80004882813,1880.80004882813 2527.69995117188,1880.80004882813 2503.39990234375,1901.80004882813 2481.60009765625,1920.30004882813 2402.39990234375,1920.30004882813 2304,1920.30004882813 2293.19995117188,1920.30004882813 2278.69995117188,1920.30004882813 2278.69995117188,1957.90002441406 2278.69995117188,1976.19995117188 2278.69995117188,1995.19995117188 2278.69995117188,2007.80004882813 2278.69995117188,2023.30004882813 2278.69995117188,2034.09997558594 2278.69995117188,2045.09997558594",
+          "floorid":19466
+       },
+       "f3":{  
+          "title":"External grounds",
+          "url":"1309-theexternalgrounds.svg",
+          "description":"",
+          "pathpoints":"2367.80004882813,1952.69995117188 2367.60009765625,1958.09997558594 2367.39990234375,1963.19995117188 2197,1963.30004882813 2080.80004882813,1963.40002441406 2060.89990234375,1970.09997558594 2056,1966 2052.10009765625,1962.80004882813",
+          "floorid":19464
+       },
+       "f4":{  
+          "title":"First floor",
+          "url":"1309-thefirstfloor.svg",
+          "description":"",
+          "pathpoints":"1769.30004882813,2053.30004882813 1759.40002441406,2046.09997558594 1743.19995117188,2034.40002441406 1732,2034.40002441406 1719.5,2034.40002441406",
+          "floorid":19466
+       }
+    },
+    "WalkingDirections":{  
+       "Step 1 - Third floor":[  
+          {  
+             "distance":0.0,
+             "Direction":"START",
+             "Description":"Begin by walking away from the nurse's station to the hall (Go 14ft.)"
+          },
+          {  
+             "distance":14.0,
+             "Direction":"RIGHT",
+             "Description":"Turn right and walk north all the way to the end of the hallway (Go 105ft.)"
+          },
+          {  
+             "distance":105.0,
+             "Direction":"LEFT",
+             "Description":"Turn left down the hallway towards the North elevators, on the right side (Go 51ft.)"
+          },
+          {  
+             "distance":51.0,
+             "Direction":"RIGHT",
+             "Description":"Turn right and get into the elevators (Go 11ft.)"
+          },
+          {  
+             "distance":0.0,
+             "Direction":"FLOOR-FLOOR",
+             "Description":"Take North elevators to the first floor"
+          }
+       ],
+       "Step 2 - First floor":[  
+          {  
+             "distance":0.0,
+             "Direction":"CONTINUE",
+             "Description":"Exit the elevators (Go 12ft.)"
+          },
+          {  
+             "distance":12.0,
+             "Direction":"RIGHT",
+             "Description":"Turn right and walk to the end of the hallway (Go 107ft.)"
+          },
+          {  
+             "distance":107.0,
+             "Direction":"RIGHT",
+             "Description":"Turn right down the hallway (Go 39ft.)"
+          },
+          {  
+             "distance":39.0,
+             "Direction":"LEFT",
+             "Description":"Turn left towards West Tower elevators (Go 26ft.)"
+          },
+          {  
+             "distance":26.0,
+             "Direction":"SLIGHT LEFT",
+             "Description":"Turn slight left across elevator lobby (Go 21ft.)"
+          },
+          {  
+             "distance":21.0,
+             "Direction":"SLIGHT RIGHT",
+             "Description":"Turn slight right down the hall towards the waiting room (Go 71ft.)"
+          },
+          {  
+             "distance":71.0,
+             "Direction":"LEFT",
+             "Description":"Turn left and walk through the lobby towards the entrance (Go 43ft.)"
+          },
+          {  
+             "distance":0.0,
+             "Direction":"FLOOR-FLOOR",
+             "Description":"Take Outpatient Center doors to the external grounds"
+          }
+       ],
+       "Step 3 - External grounds":[  
+          {  
+             "distance":0.0,
+             "Direction":"CONTINUE",
+             "Description":"Exit the West Tower to the sidewalk (Go 4ft.)"
+          },
+          {  
+             "distance":4.0,
+             "Direction":"RIGHT",
+             "Description":"Turn right along the sidewalk towards the Breast Imaging Center (Go 108ft.)"
+          },
+          {  
+             "distance":108.0,
+             "Direction":"SLIGHT RIGHT",
+             "Description":"Enter the Building (Go 4ft.)"
+          },
+          {  
+             "distance":0.0,
+             "Direction":"FLOOR-FLOOR",
+             "Description":"Take Breast Imaging Center doors to the first floor"
+          }
+       ],
+       "Step 4 - First floor":[  
+          {  
+             "distance":0.0,
+             "Direction":"CONTINUE",
+             "Description":"Continue into the Breast Imaging Center (Go 11ft.)"
+          },
+          {  
+             "distance":11.0,
+             "Direction":"SLIGHT LEFT",
+             "Description":"Proceed through the doors into the Breast Imaging Center, check in at the desk (Go 8ft.)"
+          },
+          {  
+             "distance":8.0,
+             "Direction":"Arrive at Destination",
+             "Description":"Arrive at Destination"
+          }
+       ]
+    },
+    "ShortNote":"Walking time: 3 minutes",
+    "Note":"Estimated walking time is 3 minutes"
+ }
+ 

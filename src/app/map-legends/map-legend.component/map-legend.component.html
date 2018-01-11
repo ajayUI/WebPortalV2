@@ -1,0 +1,16 @@
+<!--slidesPerView="5" does-continue="true" centeredSlides="true" -->
+<div class="mapLegends">
+	<button class="close-map-legends-button" (click)="hideLegends()"><ion-icon class="close-map-legends" name="close"></ion-icon></button>
+		<!-- direction="{{isMapLegendsVertical? 'vertical':'horizontal'}}" -->
+<ion-slides [direction]="sliderDirection" slidesPerView="7"  class="map-slider legendList" id="map-legends"  >
+			<ion-slide *ngFor="let legend of mapLegends" attr.name="{{legend.type}}"><div class="legend-slide"><span attr.class="{{legend.type}} legendIcon" ></span><span class="legendText">{{legend.text.translatedText}}</span></div></ion-slide>
+			<!-- [ngStyle]="changeBackground" -->
+		</ion-slides>
+		<ion-icon class="next-legends" name="arrow-dropright-circle" *ngIf="isNextLegensdButtonShow" (click)="nextSlide()"></ion-icon>
+		<ion-icon class="prev-legends" name="arrow-dropleft-circle" *ngIf="isPrevLegensdButtonShow" (click) ="prevSlide()"></ion-icon>
+</div>	
+		<!--<ion-icon class="next-legends disabled" name="arrow-dropright-circle" *ngIf="!isNextLegensdButtonShow "></ion-icon>
+		<ion-icon class="prev-legends disabled" name="arrow-dropleft-circle" *ngIf="!isPrevLegensdButtonShow "></ion-icon>-->
+		
+		<!--[options]="sliderOptions"-->
+

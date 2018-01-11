@@ -1,0 +1,36 @@
+direction-steps{
+
+    // .directionIcon{width: 20px; height: 20px; background: #c00; margin-right: 10px; display: inline-block}
+    .directionContent{width:100%; display:block; color: #444}
+    .directionStepsHeading { color:#444; width:100%; min-height: 40px; padding: 0px 0px 0px 25px; font-weight: bold; background:#e6ebf1 url('../assets/icon/walking-gray.svg') no-repeat 0px 7px;background-size: 20px; line-height: 37px;}
+    .stepsAccordion ion-item .item-inner{border-bottom: none !important;}
+    .stepsAccordion ion-item .item-inner ion-label{ margin: 0px}
+    .stepsAccordion ol {margin:0px; padding: 0px 0px 0px 20px; font-size: 14px;}
+    .stepsAccordion ol li{margin:10px 0px;}
+    .viewMap { float: right; color: #1565c0; background: none; padding: 12px 10px 0px 0px; font-weight: bold; font-size: 14px;}
+    .estimatedTime{color:#4caf50; padding: 0px 0px 0px 15px; font-weight: bold;}
+    .directionsDiv {position: relative}
+    .buttonsPrintEmail {top:0px; position: absolute; right: 15px; margin-top:0px;}
+    .stepsSliderMobile{display: none; font-size: 14px; }
+    .stepsSliderMobile ion-slides h1{font-size: 14px; padding: 5px 10px; margin: 0px; }
+    
+    .stepsSliderMobile ion-slides .slide-zoom{
+    height: 85px;
+    padding: 10px;
+    }
+    @media only screen and (max-width: 500px) {
+        background: #fff;
+        position: fixed;
+        width: 100%;
+        bottom: 0px;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+    div[name="showSlider"] 
+    {
+        display: block;
+        border-top:1px solid #ccc;
+    }
+    div[name="hideSlider"] {display: none}
+
+} 

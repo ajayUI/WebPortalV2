@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Directory </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<div class="sidebar">
+  <div class="blue-search-block">
+    <search-destination></search-destination>
+  </div>
+  <!-- <div *ngIf="isDirectionSetpsVisible"  class="buttonsPrintEmail"><button class="emailButton"></button><button class="printButton"></button></div> -->
+  <div class="directory" *ngIf="initiateDirectory ">
+    <direction-list></direction-list>
+  </div>
+  <filter-destination></filter-destination>
+  <direction-steps *ngIf="isDirectionSetpsVisible"></direction-steps>
+</div>
+
+<ion-content padding>
+  <div class="{{showMapLegendsInMobile?'mapLegendsInMobile':'mapLegendsInWeb'}}">
+  <map-legends *ngIf="isMapLegendsVisible" [legendsConfig]="intitiateMapLegends"></map-legends>
+</div>
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+
+  <div class="controls">
+   <button *ngIf="isMapLegendsButtonVisible" class="showMapLegendButton" (click)="enableMobileLegendsInMobile()"></button>
+  </div>
+</ion-content>

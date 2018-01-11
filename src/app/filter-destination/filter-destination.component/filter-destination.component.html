@@ -1,0 +1,15 @@
+ <div style="color:red" *ngIf="!(allDestinationTypesData| destinationFilter:destinationFilterText).length && destinationFilterText?.length>1">No result found!</div> 
+<div *ngIf="allDestinationTypesData ">
+        <div class="header"  *ngIf="(allDestinationTypesData| destinationFilter:destinationFilterText).length && destinationFilterText?.length>1">Matching results at <strong>UMC Health System</strong></div>
+        <ion-row  class="searchRow" *ngFor='let destinationType of allDestinationTypesData|destinationFilter:destinationFilterText let i=index'
+                >
+                <h4> {{destinationType.Category}} </h4>
+                <!-- |destinationFilter:searchFilterText -->
+                <ion-col class="searchRow" *ngFor='let destination of destinationType.FilteredData'>
+                                <a (click)="goToDestination(destination)" href="javascript:void(0)">
+                                                <span [innerHTML]="destination?.SearchedData"></span>
+                                                <!-- <span *ngIf="destination.IsSearchByTag" class="blue-label">({{destinationType?.TagName}}) </span> -->
+                                        </a>
+                </ion-col>
+        </ion-row>
+</div>

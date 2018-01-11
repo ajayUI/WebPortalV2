@@ -1,0 +1,71 @@
+{  
+    "ShortestPath":{  
+       "f1":{  
+          "title":"External grounds",
+          "url":"1274-theexternalgrounds.svg",
+          "description":"",
+          "pathpoints":"4435,1950 4437,1950 4439,1950 4439,1995 4439,2043 4121,2027 3853,2011 3833,1990 3767,1986 3740,2006 3685,2003 3486,1998 3397,1994 3376,1981 3367,1959 3366.10009765625,1891.59997558594 3563,1891.09997558594",
+          "floorid":19185
+       },
+       "f2":{  
+          "title":"First floor",
+          "url":"1274-thefirstfloor.svg",
+          "description":"",
+          "pathpoints":"3572.10009765625,1845.09997558594 3570.5,1841.19995117188 3568.80004882813,1836.69995117188 3606.69995117188,1836.69995117188 3645,1836.69995117188",
+          "floorid":19187
+       }
+    },
+    "WalkingDirections":{  
+       "Step 1 - External grounds":[  
+          {  
+             "distance":0.0,
+             "Direction":"START",
+             "Description":"Follow the sidewalk (Go 4ft.)"
+          },
+          {  
+             "distance":4.0,
+             "Direction":"RIGHT",
+             "Description":"Turn right and follow the sidewalk to Carnege Ave (Go 620ft.)"
+          },
+          {  
+             "distance":620.0,
+             "Direction":"SLIGHT LEFT",
+             "Description":"Cross East 105th street (Go 409ft.)"
+          },
+          {  
+             "distance":409.0,
+             "Direction":"SLIGHT RIGHT",
+             "Description":"Continue towards Carnegie Ave (Go 80ft.)"
+          },
+          {  
+             "distance":80.0,
+             "Direction":"RIGHT",
+             "Description":"Turn right along valet area (Go 173ft.)"
+          },
+          {  
+             "distance":0.0,
+             "Direction":"FLOOR-FLOOR",
+             "Description":"Take Cancer Center Valet Parking to the first floor"
+          }
+       ],
+       "Step 2 - First floor":[  
+          {  
+             "distance":0.0,
+             "Direction":"CONTINUE",
+             "Description":"Proceed into lobby (Go 8ft.)"
+          },
+          {  
+             "distance":8.0,
+             "Direction":"RIGHT",
+             "Description":"Turn right to the pharmacy (Go 67ft.)"
+          },
+          {  
+             "distance":67.0,
+             "Direction":"Arrive at Destination",
+             "Description":"Arrive at Destination"
+          }
+       ]
+    },
+    "ShortNote":"Walking time: 7 minutes",
+    "Note":"Estimated walking time is 7 minutes"
+ }

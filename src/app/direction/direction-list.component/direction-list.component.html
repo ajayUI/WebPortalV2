@@ -1,0 +1,52 @@
+<div *ngIf="selectedDestination &&  selectedDestination.direction">
+    <h4 *ngIf="selectedDestination.direction">
+        <ng-container *ngIf="menuCurrentLevel<1">Directory</ng-container>
+        <span (click)="changeView(null)" *ngIf="isBackButtonVisible && selectedMenuLabel" class="breadcrumb">{{selectedMenuLabel.translatedText}}</span>
+        <span *ngIf="isBackButtonVisible" (click)="goToMainMenu()"><ion-icon name="home" class="homeMenu"></ion-icon></span>
+        <button (click)="changeView(null)" *ngIf="isBackButtonVisible" ion-button outline small class="backMenu">Back</button>
+        <span (click)="changeView(null)" *ngIf="showBackLabel" class="breadcrumb">{{previousMenuLabelText}}</span>
+    </h4>
+    <div class="destinationMenu" *ngIf="this.toChangeView == 0 && selectedDestination.direction">
+        <ion-list *ngFor="let menu of selectedDestination.direction">
+            <ion-item *ngIf="childrenCount[menu.id]?childrenCount[menu.id] :'No Children'">
+                <p><a href="javascript:void(0)" class="menuList" (click)="goToDirectory(menu.id,menu.clickId,menu.parentId,menu.displayOrder,menu.menuLabel,true)"
+                        style="width:100%; display:block">
+               <span class="text-left" style="text-align:left;">{{menu.menuLabel.translatedText}}</span>
+               <span class="text-right listArrow" > <ion-icon name="{{childrenCount[menu.id]?'arrow-dropright-circle':'list-box'}}"></ion-icon> </span>
+           </a></p>
+            </ion-item>
+        </ion-list>
+    </div>
+    <div *ngIf="this.toChangeView == 1 && filteredList" class="directions">
+        <input [(ngModel)]="searchDirection" class="filterDirection" placeholder="Filter">
+        <ion-icon *ngIf="searchDirection" class="clearInput" (click)="clearSearchFilter()" name="close"></ion-icon>
+        <ion-icon class="showFilter" name="search"></ion-icon>
+        <div class="directionHeaderContainer">
+            <div class="directionHeader" *ngFor="let columnName of visibleColumns let i=index">
+                <div *ngIf="i<2" class="{{visibleColumns.length>2?'three-col':'two-col'}}">{{columnName}}</div>
+                <div *ngIf="i==2" class="button-col">&nbsp;&nbsp;&nbsp;</div>
+            </div>
+        </div>
+        <div class="directionContainer">
+            <ion-list *ngFor='let direction of listData|directionFilter:searchDirection '>
+                <ion-item>
+                    <ng-container *ngFor="let column of visibleColumns let i=index">
+                        <div class="three-col" *ngIf="i<2" [innerHTML]="direction[column]"></div>
+                        <button class="viewDetailArrow" (click)="showDetailPopup($event)" *ngIf="i==2">
+                                    <ion-icon name="arrow-dropdown-circle"></ion-icon>
+                                    </button>
+                        <span class="otherDetails noDisplay" *ngIf="i>1">
+                        <strong *ngIf="direction[column]"> {{column}} :</strong> <span  *ngIf="direction[column]"  [innerHTML]="direction[column]"></span>
+                        </span>
+                        <span class="otherDetails mapItButton noDisplay" *ngIf="i==visibleColumns.length-1">
+                                             <button (click)="getDirection(direction)" ion-button small>Map It</button>
+                                    </span>
+                    </ng-container>
+
+
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
+
+</div>
