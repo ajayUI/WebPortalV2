@@ -50,7 +50,8 @@ export class MapLegend extends ComponentBase {
       if (status) {
         this.setupLegends()
         this.resetLegends();
-        
+       
+
       }
     });
     this.subscriptions.push(subscribeMapLegends);

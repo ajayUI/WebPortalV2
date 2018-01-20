@@ -83,6 +83,17 @@ export class DirectionStepsComponent {
                 }
             }
         });
+
+
+
+        this.destinationService.initDirectionSteps.subscribe(status =>{
+
+             if(this.platform.is('mobileweb'))
+             {
+                this.showMap(this.stepsArray[0]);
+             }
+
+        })
     }
 
     public setWalkingDirections(directions) {
@@ -135,7 +146,6 @@ export class DirectionStepsComponent {
 
     private handleIconAndBuildingText(directionDescription) {
         if (directionDescription) {
-            console.log("direction steps : " + directionDescription);
             //replace building/suite
             if (directionDescription.indexOf('<|') != -1) {
                 directionDescription = directionDescription.replace(/<\|/g, '<strong>').replace(/\|>/g, '</strong>');
@@ -186,7 +196,6 @@ export class DirectionStepsComponent {
         return this.shownGroup === group;
     };
     public showMap(step) {
-        
         this.mobileDirectionSteps = step;
         if (this.platform.is('mobileweb')) {
             this.directionProcessor.isShowMobileStepsSlider=true;
@@ -202,8 +211,22 @@ export class DirectionStepsComponent {
 
     public get isShowStepsSlider():boolean
     {
-        return this.platform.is('mobileweb') && this.isShowMobileStepsSlider && this.directionProcessor.isShowMobileStepsSlider ;
+        
+        return this.directionProcessor.isShowMobileStepsSlider && this.platform.is('mobileweb') && this.isShowMobileStepsSlider;
     }
+
+    public swipeEvent(event)
+    {
+        this.resetMobileStepsSlider();
+    }
+
+    public resetMobileStepsSlider()
+    {
+        this.isShowMobileStepsSlider = false;
+        this.directionProcessor.isShowMobileStepsSlider = false;
+
+    }
+
 
 
 }

@@ -44,7 +44,6 @@ export class FilterDestinationComponent {
 
     public goToDestination(destination)
     {
-        console.log(JSON.stringify(destination));
         this.destinationService.directionUpdateFromDirectionList.next(destination);
         this.destinationService.filterDestinationText='';
     }

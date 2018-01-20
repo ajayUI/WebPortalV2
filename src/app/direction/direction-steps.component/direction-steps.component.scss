@@ -23,8 +23,13 @@ direction-steps{
         position: fixed;
         width: 100%;
         bottom: 0px;
-        max-height: 300px;
-        overflow-y: auto;
+        // max-height: 300px;
+        // overflow-y: auto;
+        .stepsAccordion {max-height: 300px;
+            overflow-y: auto;}
+        .viewMap{font-size: 13px;}
+        .estimatedTime , .stepsAccordion, .directionStepsHeading {font-size: 13px;}
+        .stepsAccordion ol li{font-size: 13px;}
     }
     div[name="showSlider"] 
     {

@@ -7,15 +7,17 @@
   </ion-navbar>
 </ion-header>
 
-<div class="sidebar">
+<!-- class="sidebar" -->
+<div class="{{isMapLegendsVisible?'sidebar mapLegendsInMobile':'sidebar mapLegendsInWeb'}}">
   <div class="blue-search-block">
     <search-destination></search-destination>
   </div>
   <!-- <div *ngIf="isDirectionSetpsVisible"  class="buttonsPrintEmail"><button class="emailButton"></button><button class="printButton"></button></div> -->
-  <div class="directory" *ngIf="initiateDirectory ">
+  <!-- class="directory" -->
+  <div *ngIf="initiateDirectory " class="directory">
     <direction-list></direction-list>
   </div>
-  <filter-destination></filter-destination>
+  <filter-destination *ngIf="isFilterDestinationInitiated"></filter-destination>
   <direction-steps *ngIf="isDirectionSetpsVisible"></direction-steps>
 </div>
 

@@ -610,7 +610,6 @@ export class DirectionListComponent extends ComponentBase
 
     filterItems(){
         let searchTerm = this.searchDirection;
-        console.log(searchTerm);
                return this.filteredList.filter((item) => {
                    return item[this.visibleColumns[0]].toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
                });    

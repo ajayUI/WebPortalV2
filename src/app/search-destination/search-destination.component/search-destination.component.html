@@ -1,53 +1,70 @@
 <!-- *ngIf="toDestination" -->
-<div class="toLocation">
-        <span *ngIf="toDestination">To: {{toDestination}} </span>
-        <button class="toggleBlueBarArrow" *ngIf="!isMobileViewSearchBarExpand" (click)="enableBlueSearchBar()">
+<div class="toLocation" *ngIf="toDestination && isToDestinationLableVisible">
+        <span>To: {{toDestination}} </span>
+        <button class="toggleBlueBarArrow" *ngIf="!isMobileViewSearchBarExpand && isDirectionsFilled " (click)="enableBlueSearchBar()">
                 <ion-icon class="arrow-down" name="ios-arrow-down"></ion-icon>
         </button>
 </div>
 <!-- name="{{isMobileViewSearchBarExpand?'ios-arrow-up':'ios-arrow-down'}}" -->
 <!-- name="ios-arrow-down" -->
-<div class="searchBar" attr.name="{{isMobileViewSearchBarExpand?'openContainer':'closeContainer'}}">
-        <div class="form-block">
-                <div class="from-to-location">
-                        <ion-icon class="from-flag" name="flag"></ion-icon>
-                        <div class="borderLine"></div>
-                        <ion-icon class="to-pin" name="pin"></ion-icon>
 
-                </div>
-                <div class="search-row">
-                        <input type="text" (keyup)="onKey($event.target.value)" (click)="getDirectoryData('from')" [(ngModel)]="startingPointText"
-                                value="" placeholder="Enter starting point or choose from the directory" />
-                        <ion-icon *ngIf="!startingPointText" name="search" class="search-icon"></ion-icon>
-                        <ion-icon *ngIf="startingPointText" class="clearInput" (click)="clearStartingPoint()" name="close"></ion-icon>
-                </div>
-                <div class="search-row detect-location">
-                        <ion-icon name="locate"></ion-icon>
-                        <input type="text" value="" placeholder="Detect current address" />
-                </div>
-                <div class="search-row">
-                        <!-- (ngModelChange)="setToDestination()" -->
-                        <input type="text" (keyup)="onKey($event.target.value)" (click)="getDirectoryData('to')" [(ngModel)]="endPointText" value=""
-                                placeholder="Enter destination or choose from the directory" />
-                        <ion-icon *ngIf="!endPointText" name="search" class="search-icon"></ion-icon>
-                        <ion-icon *ngIf="endPointText" class="clearInput" (click)="clearEndingPoint()" name="close"></ion-icon>
-                </div>
-        </div>
-        <p *ngIf="startingPointText && endPointText" class="{{startingPointText && endPointText ? 'moveLittleBelow' : 'noMove' }}">
-                <ion-icon class="swapIcon" (click)="swapLocation()" name="swap"></ion-icon>
-        </p>
+<div attr.name="{{isDirectionsFilled && getDirectionsButtonClicked?'mobieWithDirection':'noDirection'}}">
+        <div class="searchBar" attr.name="{{isMobileViewSearchBarExpand && isDirectionsFilled && getDirectionsButtonClicked ?'openContainer':'closeContainer'}}">
+                <div class="form-block">
+                        <div class="from-to-location">
+                                <ion-icon class="from-flag" name="flag"></ion-icon>
+                                <div class="borderLine"></div>
+                                <ion-icon class="to-pin" name="pin"></ion-icon>
 
-        <div class="buttonWrapper" *ngIf="startingPointText && endPointText">
-                <button (click)="getDirections()">Get Directions</button>
-        </div>
+                        </div>
+                        <div class="search-row">
+                                <ion-item>
+                                        <ion-label floating>Enter starting point or choose from the directory</ion-label>
+                                        <ion-input type="text" (keyup)="onKey($event.target.value)" (click)="getDirectoryData('from')" [(ngModel)]="startingPointText"
+                                                value=""></ion-input>
+                                              
+                                </ion-item>
+                                <!-- <input type="text" (keyup)="onKey($event.target.value)" (click)="getDirectoryData('from')" [(ngModel)]="startingPointText"
+                                        value="" placeholder="Enter starting point or choose from the directory" /> -->
+                                <ion-icon *ngIf="!startingPointText" name="search" class="search-icon"></ion-icon>
+                                <ion-icon *ngIf="startingPointText" class="clearInput" (click)="clearStartingPoint()" name="close"></ion-icon>
+                        </div>
+                        <div class="search-row detect-location">
+                                <ion-icon name="locate"></ion-icon> <a href="">Detect current address</a>
+                                <!-- <input type="text" value="" placeholder="Detect current address" /> -->
+                        </div>
+                        <div class="search-row">
+                                <!-- (ngModelChange)="setToDestination()" -->
 
-        <button class="toggleBlueBarArrow bottom-arrow" (click)="enableBlueSearchBar()" *ngIf="isMobileViewSearchBarExpand">
-                <ion-icon class="arrow-down" name="ios-arrow-up"></ion-icon>
-        </button>
+                                        <ion-item>
+                                                <ion-label floating>Enter starting point or choose from the directory</ion-label>
+                                                <ion-input type="text" (keyup)="onKey($event.target.value)" (click)="getDirectoryData('to')" [(ngModel)]="endPointText" value=""></ion-input>
+                                              
+                                        </ion-item>
 
-        <!-- <div *ngIf="startingDirectionPointObject && endingDirectionPointObject">From Location : {{endingDirectionPointObject | json }}<br />
+                                <!-- <input type="text" (keyup)="onKey($event.target.value)" (click)="getDirectoryData('to')" [(ngModel)]="endPointText" value=""
+                                        placeholder="Enter destination or choose from the directory" /> -->
+                                <ion-icon *ngIf="!endPointText" name="search" class="search-icon"></ion-icon>
+                                <ion-icon *ngIf="endPointText" class="clearInput" (click)="clearEndingPoint()" name="close"></ion-icon>
+                        </div>
+                </div>
+                <span *ngIf="startingPointText && endPointText" class="{{startingPointText && endPointText && isPlatformMobile? 'moveLittleBelow' : 'noMove' }}">
+                        <ion-icon class="swapIcon" (click)="swapLocation()" name="swap"></ion-icon>
+                </span>
+
+                <!-- <ion-icon *ngIf="startingPointText && endPointText" class="{{startingPointText && endPointText ? 'swapIcon moveLittleBelow' : 'swapIcon noMove' }}"  (click)="swapLocation()" name="swap"></ion-icon> -->
+
+                <div class="buttonWrapper" *ngIf="startingPointText && endPointText">
+                        <button (click)="getDirections()">Get Directions</button>
+                </div>
+
+                <button class="toggleBlueBarArrow bottom-arrow" (click)="enableBlueSearchBar()" *ngIf="isMobileViewSearchBarExpand && isDirectionsFilled">
+                        <ion-icon class="arrow-down" name="ios-arrow-up"></ion-icon>
+                </button>
+
+                <!-- <div *ngIf="startingDirectionPointObject && endingDirectionPointObject">From Location : {{endingDirectionPointObject | json }}<br />
      End Location : {{startingDirectionPointObject | json }}</div> -->
-        <!-- <div *ngIf="allDestinationTypesData">
+                <!-- <div *ngIf="allDestinationTypesData">
                 
                 <ion-row *ngFor='let destinationType of allDestinationTypesData|destinationFilter:startingPointText ' class="search-row"
                         (click)="goToDestination(destinationType)">
@@ -59,5 +76,6 @@
                           </ion-col>
                 </ion-row>
         </div> -->
-        <!-- destinationType?.Quicklink, destinationType?.SearchedData) -->
+                <!-- destinationType?.Quicklink, destinationType?.SearchedData) -->
+        </div>
 </div>

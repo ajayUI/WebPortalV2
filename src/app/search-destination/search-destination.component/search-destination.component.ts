@@ -18,12 +18,9 @@ export class SearchDestination {
 
 
     public allDestinationTypesData: any[];
-
-
     private destinationData: any[];
     private startingPointText: string;
     private endPointText: string;
-
     private startingDirectionPointObject: any[];
     private endingDirectionPointObject: any[];
     public isMobileViewSearchBarExpand: boolean;
@@ -31,17 +28,13 @@ export class SearchDestination {
     public selectedFromDirectionVisibleColumns: any[];
     public selectedToDirectionVisibleColumns: any[];
 
+    public getDirectionsButtonClicked: boolean;
     public isDirectionSwapped: boolean;
-
-
-
-
-
     constructor(
         private searchDestinationProcessor: SearchDestinationProcessor,
         private destinationService: DestinationService,
         private portalParameterService: PortalParameterService,
-        private directionSearchCommunicationService:DirectionSearchCommunicationService,
+        private directionSearchCommunicationService: DirectionSearchCommunicationService,
         public platform: Platform
     ) {
         this.init();
@@ -68,6 +61,7 @@ export class SearchDestination {
         this.endPointText = '';
         this.isDirectionSwapped = false;
         this.allDestinationTypesData = this.searchDestinationProcessor.allDestinationTypesData.getValue();
+        this.getDirectionsButtonClicked = false;
     }
     public getDirectoryData(location) {
         this.destinationService.isDirectionStepsVisible = false;
@@ -80,7 +74,7 @@ export class SearchDestination {
         }
 
         this.destinationService.isDirctoryInitiatedFromDestinationInput.next(true);
-        this.directionSearchCommunicationService.isSearchDestinationInitiated=false;
+        this.directionSearchCommunicationService.isSearchDestinationInitiated = false;
 
     }
 
@@ -100,7 +94,6 @@ export class SearchDestination {
 
         this.destinationService.directionUpdateFromDirectionList.subscribe(result => {
             if (result) {
-                console.log(JSON.stringify(result));
 
 
                 //if (result.Location) {
@@ -109,14 +102,11 @@ export class SearchDestination {
                     if (this.destinationService.locationInitiatedFrom == AppConstant.FROM_DIRECTORY_LOCATION) {
 
                         this.selectedFromDirectionVisibleColumns = this.selectedDirectionVisibleColumns;
-                        console.log("from start " + JSON.stringify(this.selectedFromDirectionVisibleColumns));
                         //this.startingPointText = result.Location;
-                        if(this.selectedDirectionVisibleColumns && !this.directionSearchCommunicationService.isSearchDestinationInitiated)
-                        {
-                        this.startingPointText = result[this.selectedDirectionVisibleColumns[0]];
+                        if (this.selectedDirectionVisibleColumns && !this.directionSearchCommunicationService.isSearchDestinationInitiated) {
+                            this.startingPointText = result[this.selectedDirectionVisibleColumns[0]];
                         }
-                        else
-                        {
+                        else {
                             this.startingPointText = result['SearchedData'];
                         }
 
@@ -126,13 +116,10 @@ export class SearchDestination {
                     if (this.destinationService.locationInitiatedFrom == AppConstant.TO_DIRECTORY_LOCATION) {
                         //this.endPointText = result.Location;
                         this.selectedToDirectionVisibleColumns = this.selectedDirectionVisibleColumns;
-                        console.log("from end " + JSON.stringify(this.selectedToDirectionVisibleColumns));
-                        if(this.selectedDirectionVisibleColumns && !this.directionSearchCommunicationService.isSearchDestinationInitiated)
-                        {
+                        if (this.selectedDirectionVisibleColumns && !this.directionSearchCommunicationService.isSearchDestinationInitiated) {
                             this.endPointText = result[this.selectedDirectionVisibleColumns[0]]
                         }
-                        else
-                        {
+                        else {
                             this.endPointText = result['SearchedData'];
                         }
 
@@ -149,34 +136,28 @@ export class SearchDestination {
     }
 
     public swapLocation() {
-        //debugger;
 
         if (this.isDirectionSwapped == false) {
             let endPointObj = this.endingDirectionPointObject;
             let startPointObj = this.startingDirectionPointObject;
 
             if (endPointObj && startPointObj && this.selectedToDirectionVisibleColumns) {
-                if(endPointObj['SearchedData'])
-                {
+                if (endPointObj['SearchedData']) {
                     this.startingPointText = endPointObj['SearchedData'];
                 }
-                else
-                {
+                else {
                     this.startingPointText = endPointObj[this.selectedToDirectionVisibleColumns[0]];
                 }
-                if(startPointObj['SearchedData'])
-                {
+                if (startPointObj['SearchedData']) {
                     this.endPointText = startPointObj['SearchedData'];
                 }
-                else
-                {
+                else {
                     this.endPointText = startPointObj[this.selectedFromDirectionVisibleColumns[0]];
                 }
-               
-               
+
+
             }
-            else if(endPointObj && startPointObj && !this.selectedToDirectionVisibleColumns)
-            {
+            else if (endPointObj && startPointObj && !this.selectedToDirectionVisibleColumns) {
                 this.startingPointText = endPointObj['SearchedData'];
                 this.endPointText = startPointObj['SearchedData'];
             }
@@ -190,27 +171,22 @@ export class SearchDestination {
 
             if (endPointObj && startPointObj && this.selectedToDirectionVisibleColumns) {
 
-                if(endPointObj['SearchedData'])
-                {
+                if (endPointObj['SearchedData']) {
                     this.endPointText = endPointObj['SearchedData'];
                 }
-                else
-                {
+                else {
                     this.endPointText = endPointObj[this.selectedToDirectionVisibleColumns[0]];
                 }
-                if(startPointObj['SearchedData'])
-                {
+                if (startPointObj['SearchedData']) {
                     this.startingPointText = startPointObj['SearchedData']
                 }
-                else
-                {
+                else {
                     this.startingPointText = startPointObj[this.selectedFromDirectionVisibleColumns[0]]
-                    
+
                 }
 
             }
-            else if(endPointObj && startPointObj && !this.selectedToDirectionVisibleColumns)
-            {
+            else if (endPointObj && startPointObj && !this.selectedToDirectionVisibleColumns) {
                 this.startingPointText = startPointObj['SearchedData']
                 this.endPointText = endPointObj['SearchedData'];
             }
@@ -241,6 +217,7 @@ export class SearchDestination {
             else {
                 this.portalParameterService.initMapLegends = true;
             }
+            this.getDirectionsButtonClicked = true;
             this.destinationService.initDirectionSteps.next(true);
 
         }
@@ -248,26 +225,29 @@ export class SearchDestination {
 
     public clearStartingPoint() {
         this.startingPointText = '';
-        this.directionSearchCommunicationService.isSearchDestinationInitiated=false;
+        this.getDirectionsButtonClicked = false;
+        this.directionSearchCommunicationService.isSearchDestinationInitiated = false;
     }
 
     public clearEndingPoint() {
         this.endPointText = '';
-        this.directionSearchCommunicationService.isSearchDestinationInitiated=false;
+        this.getDirectionsButtonClicked = false;
+        this.directionSearchCommunicationService.isSearchDestinationInitiated = false;
     }
     public get toDestination(): string {
-        if (this.endingDirectionPointObject) 
-        {
-            if(!this.endingDirectionPointObject['SearchedData'])
-            {
+        if (this.endingDirectionPointObject) {
+            if (!this.endingDirectionPointObject['SearchedData']) {
                 return this.endingDirectionPointObject[this.selectedDirectionVisibleColumns[0]];
             }
-            else
-            {
+            else {
                 return this.endingDirectionPointObject['SearchedData'];
             }
         }
-     }
+        else
+        {
+            return '';
+        }
+    }
     public enableBlueSearchBar() {
 
         if (this.isMobileViewSearchBarExpand == false) {
@@ -281,32 +261,45 @@ export class SearchDestination {
 
     }
 
-    public goToDestination(destinationData)
-    {
+    public goToDestination(destinationData) {
         this.destinationService.directionUpdateFromDirectionList.next(destinationData);
         alert(destinationData.SearchedData);
         alert(destinationData.Quicklink);
     }
 
-    public onKey(value){
-    
-        this.destinationService.filterDestinationText=value;
-        if(value.length>1)
-        {
-        
-        this.directionSearchCommunicationService.isSearchDestinationInitiated=true;
-        this.destinationService.isDirectoryInitiatedFromDestinationInputCompleted.next(true);
+    public onKey(value) {
+
+        this.destinationService.filterDestinationText = value;
+        if (value.length > 1) {
+
+            this.directionSearchCommunicationService.isSearchDestinationInitiated = true;
+            this.destinationService.isDirectoryInitiatedFromDestinationInputCompleted.next(true);
         }
-        else
-        {
-            this.directionSearchCommunicationService.isSearchDestinationInitiated=false;
+        else {
+            this.directionSearchCommunicationService.isSearchDestinationInitiated = false;
         }
 
     }
 
-    public get isSearchDestinationInitiated():boolean
-    {
+    public get isSearchDestinationInitiated(): boolean {
         return this.directionSearchCommunicationService.isSearchDestinationInitiated;
+    }
+
+    public get isDirectionsFilled(): boolean {
+        return (this.startingPointText != '') && (this.endPointText != '') && this.platform.is('mobileweb')
+    }
+
+    public get isToDestinationLableVisible(): boolean {
+        return (this.startingPointText != '') && (this.endPointText != '')
+    }
+
+    public get isPlatformMobile(): boolean {
+        if (this.platform.is('mobileweb')) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 }

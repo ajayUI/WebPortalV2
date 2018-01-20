@@ -68,23 +68,28 @@ directory-view {
                 //     min-height: 25px;}
               //  .blue-search-block {display: none}
               .mapLegends {width: 0px;}
-              .mapLegendsInMobile .mapLegends{ width:400px; height: 500px }
+              .mapLegendsInMobile .mapLegends{ height: 500px; bottom: 0px; }
               .mapLegendsInMobile .mapLegends .swiper-wrapper {height: 500px }
               .mapLegendsInMobile .mapLegends ion-slides {
-                  margin-top: 20px;
+                  margin-top: 10px;
               height: 425px;
               overflow-y: auto;
               }
               .mapLegendsInMobile .mapLegends ion-slide {width: 100% !important; height: auto !important;}
               .mapLegendsInMobile .mapLegends .swiper-container {height: 500px; padding-top:0px; }
               .mapLegendsInMobile .mapLegends .swiper-wrapper {max-height: 500px;width:100%;}
-              .mapLegendsInMobile .mapLegends  .slide-zoom {text-align: left; padding-left: 30px; font-size: 18px; line-height:26px;
+              .mapLegendsInMobile .mapLegends  .slide-zoom {text-align: left; padding-left: 5px; font-size: 14px; line-height:26px;
                 min-height: 50px;}
 
               .mapLegendsInMobile .mapLegends .next-legends, .prev-legends {display:none}
               .blue-search-block {
                 margin-top: 44px;
             }
+
+
+            .mapLegendsInMobile direction-steps {bottom: -300px;}
+
+            .mapLegendsInWeb direction-steps {bottom: 0px;}
     }
 }
 

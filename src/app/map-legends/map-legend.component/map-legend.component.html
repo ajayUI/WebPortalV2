@@ -1,6 +1,7 @@
 <!--slidesPerView="5" does-continue="true" centeredSlides="true" -->
 <div class="mapLegends">
 	<button class="close-map-legends-button" (click)="hideLegends()"><ion-icon class="close-map-legends" name="close"></ion-icon></button>
+	<h4 class="legendTitle">Legend</h4>
 		<!-- direction="{{isMapLegendsVertical? 'vertical':'horizontal'}}" -->
 <ion-slides [direction]="sliderDirection" slidesPerView="7"  class="map-slider legendList" id="map-legends"  >
 			<ion-slide *ngFor="let legend of mapLegends" attr.name="{{legend.type}}"><div class="legend-slide"><span attr.class="{{legend.type}} legendIcon" ></span><span class="legendText">{{legend.text.translatedText}}</span></div></ion-slide>

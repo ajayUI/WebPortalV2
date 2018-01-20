@@ -1,5 +1,5 @@
- <div style="color:red" *ngIf="!(allDestinationTypesData| destinationFilter:destinationFilterText).length && destinationFilterText?.length>1">No result found!</div> 
-<div *ngIf="allDestinationTypesData ">
+ <div style="color:red; padding:15px" *ngIf="!(allDestinationTypesData| destinationFilter:destinationFilterText).length && destinationFilterText?.length>1">No result found!</div> 
+<div *ngIf="allDestinationTypesData " attr.class="{{allDestinationTypesData && (allDestinationTypesData| destinationFilter:destinationFilterText).length?'searchFilterResult':''}}">
         <div class="header"  *ngIf="(allDestinationTypesData| destinationFilter:destinationFilterText).length && destinationFilterText?.length>1">Matching results at <strong>UMC Health System</strong></div>
         <ion-row  class="searchRow" *ngFor='let destinationType of allDestinationTypesData|destinationFilter:destinationFilterText let i=index'
                 >

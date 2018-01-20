@@ -1,27 +1,33 @@
 <div class="printOverlay displayTableRows">
-    <div class="directionsDiv" *ngIf="!isShowStepsSlider">
-        <p class="estimatedTime" *ngIf="directionStepsNote">{{directionStepsNote}}</p><p class="buttonsPrintEmail"><button class="emailButton"></button><button class="printButton"></button></p>
-        <ion-list class="stepsAccordion">
-            <ion-item *ngFor="let step of directionStepsTitle; let i = index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
-              <h3 class="directionStepsHeading">
-                {{step.EnglishLanguageKey}} 
-                <button class="viewMap" (click)="showMap(stepsArray[i])">View Map</button> 
-                <!-- <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon> -->
-              </h3>
-              <ol *ngIf="isGroupShown(i)">
-                <li *ngFor="let direction of stepsArray[i]">
-                     <span class="directionIcon" [ngClass]="direction.directionClass"></span>
-                       <span class="directionContent" [innerHTML]="direction.description"></span></li>
-                        </ol>
-            </ion-item>
-          </ion-list>
-    </div>
+  <div class="directionsDiv" *ngIf="!isShowStepsSlider">
+    <p class="estimatedTime" *ngIf="directionStepsNote">{{directionStepsNote}}</p>
+    <p class="buttonsPrintEmail">
+      <button class="emailButton"></button>
+      <button class="printButton"></button>
+    </p>
+    <ion-list class="stepsAccordion">
+      <ion-item *ngFor="let step of directionStepsTitle; let i = index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+        <h3 class="directionStepsHeading">
+          {{step.EnglishLanguageKey}}
+          <button class="viewMap" (click)="showMap(stepsArray[i])">View Map</button>
+          <!-- <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon> -->
+        </h3>
+        <ol *ngIf="isGroupShown(i)">
+          <li *ngFor="let direction of stepsArray[i]">
+            <span class="directionIcon" [ngClass]="direction.directionClass"></span>
+            <span class="directionContent" [innerHTML]="direction.description"></span>
+          </li>
+        </ol>
+      </ion-item>
+    </ion-list>
+  </div>
 </div>
 
-<div class="stepsSliderMobile" *ngIf="mobileDirectionSteps" attr.name="{{isShowStepsSlider?'showSlider':'hideSlider'}}" >
-  <ion-slides direction="horizontal" initialSlide="{{initialSlide}}" pager="true"  paginationType="bullets" slidesPerView="1" autoplay="2000" spaceBetween="50" #slides>
+<div class="stepsSliderMobile" (tap)="swipeEvent($event)" *ngIf="mobileDirectionSteps" attr.name="{{isShowStepsSlider?'showSlider':'hideSlider'}}">
+  <ion-slides direction="horizontal" initialSlide="{{initialSlide}}" pager="true" paginationType="bullets" slidesPerView="1"
+    autoplay="2000" spaceBetween="50" #slides>
     <ion-slide *ngFor="let step of mobileDirectionSteps">
       <h1>{{step.description}}</h1>
     </ion-slide>
-    </ion-slides>
+  </ion-slides>
 </div>

@@ -24,17 +24,16 @@ map-legends{
     .legend-slide{height:45px;}
     .legendText {float:left; display: block; padding-top: 13px; }
     .legendIcon {background:#fff url('../assets/icon/transite-green.svg') no-repeat 0px 14px;background-size: 20px; width: 30px; height: 34px; display: block; float: left}
-@media all and (orientation:portrait) {
-    
-}
+    .legendTitle {display: none}
+
 
 @media only screen and (max-width: 500px) {
-
-
+    .mapLegends {border-radius: 0px;width: 100% !important; right: 0%;}
+    .legendTitle {display: block; font-size: 16px; color: #2196f3; margin-left:30px;}
     .next-legends,.prev-legends { top:5px;}
     .close-map-legends-button {position: absolute; float: right; position: absolute; right: 0px;right: 35px;
         top: 15px;z-index: 4; background: none}
-    .close-map-legends{font-size: 2.5em; font-weight: bold;
+    .close-map-legends{font-size: 2em; font-weight: bold;
      }
 }
 

@@ -18,8 +18,8 @@ direction-list{
 
     .directionHeader .two-col, .directionHeader .three-col {padding-left:15px;border-collapse: collapse; padding-top:10px !important; padding-bottom: 10px !important;  }
 
-    .directionHeader .three-col{width:40%; float:left; word-wrap: break-word; padding: 3px; white-space: normal; padding-left: 15px; background: #e6ebf1; font-weight:bold;}
-    .directionHeader .two-col{width:49%; float:left; word-wrap: nowrap; background: #e6ebf1;font-weight:bold;}
+    .directionHeader .three-col{width:40%; float:left; word-wrap: break-word; padding: 3px; white-space: normal; padding-left: 15px; background: #e6ebf1; font-weight:bold; color: #444;}
+    .directionHeader .two-col{width:49%; float:left; word-wrap: nowrap; background: #e6ebf1;font-weight:bold; color: #444;}
     .directionHeader .button-col{width:20%; float:left; padding: 9px 9px 10px 9px;background: #e6ebf1;font-weight:bold;}
 
     .backMenu {margin-top:0px; right:10px;position: absolute}
@@ -48,7 +48,10 @@ direction-list{
         cursor: pointer;
         color: #b8c2ce;
     }
+    .otherDetails{color: #444;}    
+    .otherDetails strong {color: #444;}
     .directionHeaderContainer {overflow: hidden}
+    .directionHeaderContainer ion-item {color: #444}
     .directionContainer{max-height: 500px; overflow: auto;}
     .breadcrumb{ font-size:16px; margin-left: 15px;}
     .breadcrumb-arrow {font-size: 0.89em;}
@@ -58,5 +61,8 @@ direction-list{
     @media only screen and (max-width: 500px) {
     .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {border-bottom: none;}
     .list-ios > .item-block:first-child {border-top: none}
+        .destinationMenu ion-list a {font-size: 13px;}
+        .otherDetails, .three-col {font-size: 13px;}   
+        h4, .breadcrumb{font-size: 13px; font-weight: 600;} 
     }
 }
