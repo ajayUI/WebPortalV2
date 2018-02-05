@@ -25,8 +25,12 @@
   <div class="{{showMapLegendsInMobile?'mapLegendsInMobile':'mapLegendsInWeb'}}">
   <map-legends *ngIf="isMapLegendsVisible" [legendsConfig]="intitiateMapLegends"></map-legends>
 </div>
-  <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<div class="form-group searchTextForAutoComplete ">
+  <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+</div>
+
+  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="googleMapZoom">
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
   </agm-map>
 
   <div class="controls">

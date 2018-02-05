@@ -38,7 +38,8 @@
                         <span class="otherDetails noDisplay" *ngIf="i>1">
                         <strong *ngIf="direction[column]"> {{column}} :</strong> <span  *ngIf="direction[column]"  [innerHTML]="direction[column]"></span>
                         </span>
-                        <span class="otherDetails mapItButton noDisplay" *ngIf="i==visibleColumns.length-1">
+                        <!-- class="otherDetails mapItButton noDisplay" -->
+                        <span attr.class="{{visibleColumns.length==2?' mapItButton ':'otherDetails mapItButton noDisplay'}}"  *ngIf="(i==visibleColumns.length-1) || (visibleColumns.length==1)">
                                              <button (click)="getDirection(direction)" ion-button small>Map It</button>
                                     </span>
                     </ng-container>

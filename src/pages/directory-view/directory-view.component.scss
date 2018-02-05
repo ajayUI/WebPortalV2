@@ -2,8 +2,14 @@ directory-view {
     font-family: 'Open Sans', sans-serif;
     agm-map {
         height: 100%;
-        width: 100%;
+        margin-left: 430px;
+        box-sizing: border-box;
+        width: -webkit-calc(100% - 430px);
+        width:    -moz-calc(100% - 430px);
+        width:         calc(100% - 430px);
       }
+      .searchTextForAutoComplete {margin-left:500px}
+      .agm-map-container-inner {margin-left: 430px;margin-top: -20px;}
       .sidebar{
                 // min-width: 26.25%;
                 width: 430px;
@@ -49,6 +55,14 @@ directory-view {
             .mapLegendsInWeb .close-map-legends-button{display: none}
 
     @media only screen and (max-width: 500px) {
+        agm-map {
+            height: 100%;
+            width: 100%;
+            margin-left: 0px;
+           
+            
+          }
+          .agm-map-container-inner {margin-left: 0px;}
         .mapLegendsInMobile .close-map-legends-button{display: block}
                 .sidebar {min-width: 100%; min-height: 1px; width:100% }
                 .showMapLegendButton {background:#fff url("../assets/icon/legend.svg") no-repeat 2px 3px;

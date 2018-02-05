@@ -152,6 +152,10 @@ export class AppConstant {
     public static TO_DIRECTORY_LOCATION :string = "to";
 
 
+    public static DEFAULT_SLIDER_INDEX:number=0;
+    public static NUMERIC_ONE:number=1;
+    public static NUMERIC_ZERO:number=0;
+
 
 
 }

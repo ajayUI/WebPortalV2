@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCheckboxModule } from '@angular/material';
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 
 // Custom Modules
 import {
@@ -42,7 +42,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LegendModule,
     IonicModule.forRoot(MyApp, {}, { links: [] }),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyANio5KPAb9akbls96bx6_CfNzAT13rXvI'
+      apiKey: 'AIzaSyANio5KPAb9akbls96bx6_CfNzAT13rXvI',
+      libraries: ["places"]
     })
   ],
   bootstrap: [IonicApp],

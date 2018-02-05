@@ -64,7 +64,8 @@ button[name="menuBack"] {
 
 
 .menu-inner ion-header {max-width: 100%}
-.sidebar + ion-content .scroll-content {margin-top: 0px !important;}
+.sidebar + ion-content .scroll-content {margin-top: 0px !important; padding: 0px !important;}
+.fixed-content .scroll-content {padding: 0px;}
 
 
 

@@ -12,12 +12,20 @@ direction-steps{
     .directionsDiv {position: relative}
     .buttonsPrintEmail {top:0px; position: absolute; right: 15px; margin-top:0px;}
     .stepsSliderMobile{display: none; font-size: 14px; }
-    .stepsSliderMobile ion-slides h1{font-size: 14px; padding: 5px 10px; margin: 0px; }
+    .stepsSliderMobile ion-slides h1{font-size: 14px; padding: 5px 10px; max-width: 90%; margin: auto; }
     
     .stepsSliderMobile ion-slides .slide-zoom{
     height: 85px;
     padding: 10px;
     }
+
+    .nextSliderButton{ float: right; top: 10px; z-index: 999; position: absolute;right:0px;}
+    .prevSliderButton{float: left; top:10px; z-index: 999; position: absolute; left:0px}
+
+    .nextSliderButton ion-icon, .prevSliderButton ion-icon { color: #818181;
+    font-size: 20px;
+    }
+
     @media only screen and (max-width: 500px) {
         background: #fff;
         position: fixed;

@@ -1,11 +1,13 @@
 // Angular and Third Party Modules, Libs etc
-import { Component } from '@angular/core';
+import { Component, ElementRef, NgZone, ViewChild, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Platform } from 'ionic-angular';
 import { SearchDestinationProcessor } from '../search-destination.processor';
 import { DestinationService, PortalParameterService, DirectionSearchCommunicationService } from '../../service';
 import { AppConstant } from '../../base/constant/app.constant'
-
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 import { DirectionQuicklinks } from '../model/direction.quicklinks.model';
+
 
 @Component({
     selector: 'search-destination',
@@ -13,9 +15,11 @@ import { DirectionQuicklinks } from '../model/direction.quicklinks.model';
 })
 
 
-export class SearchDestination {
+export class SearchDestination implements OnInit {
 
-
+    @ViewChild("searchbox")
+    public searchFromElementRef: any;
+    public searchControl: FormControl;
 
     public allDestinationTypesData: any[];
     private destinationData: any[];
@@ -35,11 +39,50 @@ export class SearchDestination {
         private destinationService: DestinationService,
         private portalParameterService: PortalParameterService,
         private directionSearchCommunicationService: DirectionSearchCommunicationService,
-        public platform: Platform
+        private platform: Platform,
+        private mapsAPILoader: MapsAPILoader,
+        private ngZone: NgZone,
+        private elementRef : ElementRef
     ) {
         this.init();
         this.getMockData();
         this.setUpSubscriber();
+
+    }
+    ngOnInit() {
+        //create search FormControl
+        this.searchControl = new FormControl();
+        debugger;
+        let x = this.searchFromElementRef;
+
+        //this.searchFromElementRef.nativeElement
+        // console.log("searched element " + this.searchFromElementRef.nativeElement.querySelector('input'));
+        // console.log( "searched element " + this.searchFromElementRef['_elementRef'].nativeElement);
+        // console.log( "searched element from query" + this.searchFromElementRef['_elementRef'].nativeElement.querySelector('input'));
+
+        this.mapsAPILoader.load().then(() => {
+            let autocomplete = new google.maps.places.Autocomplete(this.searchFromElementRef, {
+                types: ["address"]
+            });
+            autocomplete.addListener("place_changed", () => {
+                this.ngZone.run(() => {
+                    //get the place result
+                    let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+
+                    //verify result
+                    if (place.geometry === undefined || place.geometry === null) {
+                        return;
+                    }
+
+                    //set latitude, longitude and zoom
+                    alert(place.geometry.location.lat() + place.geometry.location.lng());
+
+                    // this.latitude = place.geometry.location.lat();
+                    // this.longitude = place.geometry.location.lng();
+                    // this.googleMapZoom = 12;
+                });
+            });
+        });
 
     }
     public getMockData() {
@@ -62,6 +105,10 @@ export class SearchDestination {
         this.isDirectionSwapped = false;
         this.allDestinationTypesData = this.searchDestinationProcessor.allDestinationTypesData.getValue();
         this.getDirectionsButtonClicked = false;
+
+
+
+
     }
     public getDirectoryData(location) {
         this.destinationService.isDirectionStepsVisible = false;
@@ -243,8 +290,7 @@ export class SearchDestination {
                 return this.endingDirectionPointObject['SearchedData'];
             }
         }
-        else
-        {
+        else {
             return '';
         }
     }

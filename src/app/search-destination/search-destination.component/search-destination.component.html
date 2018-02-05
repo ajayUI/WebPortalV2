@@ -18,10 +18,16 @@
 
                         </div>
                         <div class="search-row">
+                                        <!-- <input (keyup)="onKey($event.target.value)" (click)="getDirectoryData('from')" placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" [(ngModel)]="startingPointText" #searchbox [formControl]="searchControl"> -->
                                 <ion-item>
                                         <ion-label floating>Enter starting point or choose from the directory</ion-label>
+
+                                        
                                         <ion-input type="text" (keyup)="onKey($event.target.value)" (click)="getDirectoryData('from')" [(ngModel)]="startingPointText"
-                                                value=""></ion-input>
+                                                value="" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #searchbox [formControl]="searchControl"></ion-input> 
+                                                <!-- autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #searchbox [formControl]="searchControl"-->
+
+                                                
                                               
                                 </ion-item>
                                 <!-- <input type="text" (keyup)="onKey($event.target.value)" (click)="getDirectoryData('from')" [(ngModel)]="startingPointText"

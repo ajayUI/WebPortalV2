@@ -9,7 +9,7 @@
       <ion-item *ngFor="let step of directionStepsTitle; let i = index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
         <h3 class="directionStepsHeading">
           {{step.EnglishLanguageKey}}
-          <button class="viewMap" (click)="showMap(stepsArray[i])">View Map</button>
+          <button class="viewMap" (click)="showMap(stepsArray[i] , i)">View Map</button>
           <!-- <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon> -->
         </h3>
         <ol *ngIf="isGroupShown(i)">
@@ -23,11 +23,14 @@
   </div>
 </div>
 
-<div class="stepsSliderMobile" (tap)="swipeEvent($event)" *ngIf="mobileDirectionSteps" attr.name="{{isShowStepsSlider?'showSlider':'hideSlider'}}">
-  <ion-slides direction="horizontal" initialSlide="{{initialSlide}}" pager="true" paginationType="bullets" slidesPerView="1"
-    autoplay="2000" spaceBetween="50" #slides>
-    <ion-slide *ngFor="let step of mobileDirectionSteps">
+<div class="stepsSliderMobile" *ngIf="mobileDirectionSteps" attr.name="{{isShowStepsSlider?'showSlider':'hideSlider'}}">
+  <!-- paginationType="bullets"  autoplay="2000"-->
+  <ion-slides (tap)="swipeEvent($event)" (ionSlideReachStart)="setStartOfSlides()" (ionSlideReachEnd)="setEndOfSlides()" direction="horizontal" initialSlide="{{initialSlide}}" pager="false" slidesPerView="1"
+     spaceBetween="50" #slides>
+    <ion-slide  *ngFor="let step of mobileDirectionSteps">
       <h1>{{step.description}}</h1>
     </ion-slide>
   </ion-slides>
+  <button class="prevSliderButton" *ngIf="isShowPrevSliderButton" ion-button icon-only clear (click)="getPrev()"><ion-icon name="arrow-back"></ion-icon></button>
+  <button class="nextSliderButton" *ngIf="isShowNextSliderButton" ion-button icon-only clear (click)="getNext()"><ion-icon name="arrow-forward"></ion-icon></button>
 </div>

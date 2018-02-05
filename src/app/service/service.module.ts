@@ -9,7 +9,8 @@ import
 {
     DestinationService,
     PortalParameterService,
-    DirectionSearchCommunicationService
+    DirectionSearchCommunicationService,
+    GeolocationService
 
 } from './service';
 
@@ -17,7 +18,8 @@ import
     providers: [
         DestinationService,
         PortalParameterService,
-        DirectionSearchCommunicationService
+        DirectionSearchCommunicationService,
+        GeolocationService
     ]
 })
 export class ServiceModule extends ModuleBase { }
